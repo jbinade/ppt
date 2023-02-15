@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTIJA", "SPOCK"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -61,13 +61,109 @@ public class MoveWords{
 
     public static int checkWinner(String first, String second){
 	    int first_i, second_i;
+		int ganador=0;
 
 	    first_i = getIndex(first);
 	    second_i = getIndex(second);
 
 	    if (first_i == second_i) return EMPATE;
 	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
-	}
+	    switch(first) {
+
+			case "TIJERAS": 
+
+				if(second.equals("LAGARTO")){
+				return GANA;
+				}
+
+				if(second.equals("PAPEL")){
+                    return GANA;
+                }
+
+                if(second.equals("PIEDRA")){
+                    return PIERDE;
+                }
+                
+                if(second.equals("SPOCK")){
+                    return PIERDE;
+                }
+			break;
+
+			case "PIEDRA": 
+				if(second.equals("LAGARTO")){
+				return GANA;
+				}
+
+				if(second.equals("PAPEL")){
+                    return PIERDE;
+                }
+
+                if(second.equals("TIJERAS")){
+                    return GANA;
+                }
+                
+                if(second.equals("SPOCK")){
+                    return PIERDE;
+                }
+			break;	
+
+			case "PAPEL": 
+				if(second.equals("LAGARTO")){
+				return PIERDE;
+				}
+
+				if(second.equals("LAGARTO")){
+				return PIERDE;
+				}
+
+				if(second.equals("TIJERAS")){
+				return PIERDE;
+				}
+			
+				if(second.equals("SPOCK")){
+				return GANA;
+				}
+			break;	
+
+			case "SPOCK": 
+				if(second.equals("LAGARTO")){
+				return PIERDE;
+				}
+
+				if(second.equals("PAPEL")){
+                    return PIERDE;
+                }
+
+                if(second.equals("TIJERAS")){
+                    return GANA;
+                }
+                
+                if(second.equals("PIEDRA")){
+                    return GANA;
+                }
+			break;	
+
+
+			case "LAGARTO": 
+				if(second.equals("PIEDRA")){
+				return PIERDE;
+				}
+
+				if(second.equals("PAPEL")){
+                    return GANA;
+                }
+
+                if(second.equals("TIJERAS")){
+                    return PIERDE;
+                }
+                
+                if(second.equals("SPOCK")){
+                    return GANA;
+                }
+			break;	
+		}
+
+		return ganador;
 	
-} 
+	} 
+}
