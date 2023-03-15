@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTIJA", "SPOCK"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "TORITO", "SPOCK"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -72,7 +72,7 @@ public class MoveWords{
 
 			case "TIJERAS": 
 
-				if(second.equals("LAGARTO")){
+				if(second.equals("TORITO")){
 				return GANA;
 				}
 
@@ -90,7 +90,7 @@ public class MoveWords{
 			break;
 
 			case "PIEDRA": 
-				if(second.equals("LAGARTO")){
+				if(second.equals("TORITO")){
 				return GANA;
 				}
 
@@ -108,7 +108,7 @@ public class MoveWords{
 			break;	
 
 			case "PAPEL": 
-				if(second.equals("LAGARTO")){
+				if(second.equals("TORITO")){
 				return PIERDE;
 				}
 
@@ -126,7 +126,7 @@ public class MoveWords{
 			break;	
 
 			case "SPOCK": 
-				if(second.equals("LAGARTO")){
+				if(second.equals("TORITO")){
 				return PIERDE;
 				}
 
@@ -144,7 +144,7 @@ public class MoveWords{
 			break;	
 
 
-			case "LAGARTO": 
+			case "TORITO":
 				if(second.equals("PIEDRA")){
 				return PIERDE;
 				}
